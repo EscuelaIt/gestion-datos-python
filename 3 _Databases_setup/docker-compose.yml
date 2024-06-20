@@ -1,0 +1,15 @@
+services:
+  local-db:
+    container_name: local-db
+    image: postgres:14.11-alpine3.19
+    ports:
+      - "5432:5432"
+    env_file:
+      - .env.dockercompose
+
+    volumes:
+      - local-db-data:/var/lib/postgresql/data/
+
+volumes:
+  local-db-data:
+    name: local-db-data
